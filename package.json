@@ -1,0 +1,44 @@
+{
+  "name": "@feizheng/next-operation-history",
+  "version": "1.0.0",
+  "description": "Operation history for next.",
+  "homepage": "https://github.com/afeiship/next-operation-history",
+  "author": {
+    "name": "afei",
+    "email": "1290657123@qq.com"
+  },
+  "scripts": {
+    "build": "gulp",
+    "start": "node server.js",
+    "test": "jest"
+  },
+  "main": "dist/next-operation-history.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@feizheng/gulp-pkg-header": "^1.0.2",
+    "@feizheng/rake-git": "^1.2.1",
+    "del": "^5.1.0",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-ignore": "^3.0.0",
+    "gulp-load-plugins": "^2.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "jest": "^25.1.0",
+    "uglify-save-license": "^0.4.1",
+    "yargs": "^15.1.0"
+  },
+  "dependencies": {
+    "@feizheng/next-guid": "^1.0.0",
+    "@feizheng/next-js-core2": "^2.4.1",
+    "@feizheng/next-local-storage": "^1.1.0",
+    "@feizheng/next-session-storage": "^1.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
