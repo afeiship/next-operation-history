@@ -6,7 +6,7 @@
 npm install -S @feizheng/next-operation-history
 ```
 ## configuration
-```json
+```js
 {
   max: 10,
   engine: 'local', // session
