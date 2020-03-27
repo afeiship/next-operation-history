@@ -29,7 +29,7 @@ npm install -S @feizheng/next-operation-history
 | push    | data      | Push data to items.                      |
 | replace | data      | Replace the last item.                   |
 
-## properties:
+## properties
 | api  | description            |
 | ---- | ---------------------- |
 | next | Property: can forward? |
