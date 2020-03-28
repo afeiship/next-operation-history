@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NxOperationHistory</title>
+  <script src="/object-hash/dist/object_hash.js"></script>
   <script src="/@feizheng/next-js-core2/dist/next-js-core2.js"></script>
   <script src="/@feizheng/next-slice2str/dist/next-slice2str.js"></script>
   <script src="/@feizheng/next-json/dist/next-json.js"></script>
@@ -11,12 +12,16 @@
   <script src="/@feizheng/next-local-storage/dist/next-local-storage.js"></script>
   <script src="/@feizheng/next-session-storage/dist/next-session-storage.js"></script>
   <script src="/@feizheng/next-guid/dist/next-guid.js"></script>
+  <script src="/@feizheng/next-remove/dist/next-remove.js"></script>
+  <script src="/@feizheng/next-hash/dist/next-hash.js"></script>
   <script src="/next-operation-history.js"></script>
 </head>
 <body>
 
   <script>
     var noHistory = new nx.OperationHistory({ prefix:'abc'})
+    noHistory.push({ name:'abc'}); // true
+    noHistory.push({ name:'abc'}); // false
   </script>
 </body>
 </html>

@@ -33,10 +33,12 @@
     "yargs": "^15.1.0"
   },
   "dependencies": {
-    "@feizheng/next-guid": "^1.0.0",
-    "@feizheng/next-js-core2": "^2.4.1",
+    "@feizheng/next-hash": "^1.0.0",
+    "@feizheng/next-js-core2": "^2.4.4",
     "@feizheng/next-local-storage": "^1.1.0",
-    "@feizheng/next-session-storage": "^1.1.0"
+    "@feizheng/next-remove": "^1.0.0",
+    "@feizheng/next-session-storage": "^1.1.0",
+    "object-hash": "^2.0.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

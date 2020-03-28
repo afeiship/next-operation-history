@@ -3,16 +3,17 @@
  * description: Operation history for next.
  * url: https://github.com/afeiship/next-operation-history
  * version: 1.0.0
- * date: 2020-03-27 20:59:47
+ * date: 2020-03-28 14:30:46
  * license: MIT
  */
 
 (function() {
   var global = global || this || window || Function('return this')();
   var nx = global.nx || require('@feizheng/next-js-core2');
+  var nxRemove = nx.remove || require('@feizheng/next-remove');
+  var nxHash = nx.hash || require('@feizheng/next-hash');
   var NxLocalStorage = nx.LocalStorage || require('@feizheng/next-local-storage');
   var NxSessionStorage = nx.SessionStorage || require('@feizheng/next-session-storage');
-  var nxGuid = nx.guid || require('next-guid');
 
   var DEFAULT_OPTIONS = {
     max: 10,
@@ -23,6 +24,9 @@
   };
 
   var NxOperationHistory = nx.declare('nx.OperationHistory', {
+    statics: {
+      hash: nxHash
+    },
     properties: {
       index: {
         set: function(inValue) {
@@ -39,6 +43,9 @@
         get: function() {
           return this.store.get('data') || [];
         }
+      },
+      length: function() {
+        return this.data.length;
       },
       next: function() {
         var current = this.index;
@@ -63,34 +70,23 @@
         this.index = this.options.index;
         this.data = this.options.data;
       },
+      flush: function(inData) {
+        this.data = inData.slice(-this.options.max);
+        this.index = this.last();
+      },
       last: function() {
-        return this.data.length - 1;
+        return this.length - 1;
       },
       at: function(inIndex) {
         var index = inIndex || this.index;
         return this.data[index] || null;
       },
-      set: function(inId, inData) {
-        var data = this.data;
-        var item = data.find(function(record) {
-          return inId === record.id;
-        });
-        item.data = inData;
-        this.data = data;
-      },
       get: function(inId) {
-        return this.data.find(function(record) {
-          return inId === record.id;
+        var data = this.data;
+        var item = data.find(function(value) {
+          return value.id === inId;
         });
-      },
-      sets: function(inObject) {
-        nx.forIn(
-          inObject,
-          function(key, value) {
-            this.set(key, value);
-          },
-          this
-        );
+        return item;
       },
       gets: function() {
         return this.data;
@@ -107,21 +103,49 @@
           this.index = current - 1;
         }
       },
-      push: function(inData) {
+      go: function(inIndex) {
+        if (inIndex >= 0) {
+          var index = inIndex >= this.options.max ? this.last() : inIndex;
+          this.index = index;
+        } else {
+          var index = this.index + inIndex;
+          this.index = index >= 0 ? index : 0;
+        }
+      },
+      add: function(inData) {
         var data = this.data;
-        data.push({ id: nxGuid(), data: inData });
-        this.data = data.slice(-this.options.max);
-        this.index = this.last();
+        data.push({ id: nxHash(inData), data: inData });
+        this.flush(data);
+      },
+      del: function(inId) {
+        var data = nxRemove(this.data, function(_, value) {
+          return value.id === inId;
+        });
+        this.flush(data);
+      },
+      push: function(inData) {
+        var shouldAdd = this.shouldAdd(inData);
+        if (shouldAdd) {
+          this.add(inData);
+        }
+        return shouldAdd;
       },
       replace: function(inData) {
         var data = this.data;
-        if (data.length > 0) {
-          data[data.length - 1].data = inData;
-          this.data = data.slice(-this.options.max);
-          this.index = this.last();
-        } else {
-          this.push(inData);
+        var shouldAdd = this.shouldAdd(inData);
+        if (shouldAdd) {
+          if (data.length > 0) {
+            data[data.length - 1].data = inData;
+            this.flush(data);
+          } else {
+            this.push(inData);
+          }
         }
+        return shouldAdd;
+      },
+      shouldAdd: function(inData) {
+        var last = this.data[this.last()];
+        return !last || nxHash(last.data) !== nxHash(inData);
       }
     }
   });
