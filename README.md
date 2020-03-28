@@ -15,25 +15,29 @@ npm install -S @feizheng/next-operation-history
 ```
 
 ## apis
-| api     | params    | description                              |
-| ------- | --------- | ---------------------------------------- |
-| reset   | -         | Set index/data to default options value. |
-| last    | -         | Get last index.                          |
-| at      | -/index   | Get current(index) item at index.        |
-| set     | (id,data) | Set data by id.                          |
-| sets    | (object)  | Set multiple key/values.                 |
-| get     | (id)      | Get data by id.                          |
-| gets    | -         | Get all storage data.                    |
-| forward | -         | Move index to next.                      |
-| back    | -         | Move index to previous.                  |
-| push    | data      | Push data to items.                      |
-| replace | data      | Replace the last item.                   |
+| api     | params  | description                              |
+| ------- | ------- | ---------------------------------------- |
+| reset   | -       | Set index/data to default options value. |
+| last    | -       | Get last index.                          |
+| at      | -/index | Get current(index) item at index.        |
+| get     | (id)    | Get data by id.                          |
+| gets    | -       | Get all storage data.                    |
+| forward | -       | Move index to next.                      |
+| back    | -       | Move index to previous.                  |
+| go      | index   | Move to the index.                       |
+| push    | data    | Push data to items.                      |
+| replace | data    | Replace the last item.                   |
+| add     | data    | Add to the store without judement.       |
+| del     | id      | Remove all the equal id elements.        |
 
 ## properties
-| api  | description            |
-| ---- | ---------------------- |
-| next | Property: can forward? |
-| prev | Property: can back?    |
+| api    | description                 |
+| ------ | --------------------------- |
+| next   | Property: can forward?      |
+| prev   | Property: can back?         |
+| length | Property: data size         |
+| index  | Property: Pointer           |
+| data   | Property: the original data |
 
 ## usage
 ```js
