@@ -34,7 +34,7 @@
       operationHistory.push({ name: 'abd' });
       operationHistory.push({ name: 'abc' });
 
-      var id = NxOperationHistory.hash({ name: 'abc' });
+      var id = nx.hash({ name: 'abc' });
       operationHistory.del(id);
       var res = operationHistory.data;
 

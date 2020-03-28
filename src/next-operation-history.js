@@ -15,9 +15,6 @@
   };
 
   var NxOperationHistory = nx.declare('nx.OperationHistory', {
-    statics: {
-      hash: nxHash
-    },
     properties: {
       index: {
         set: function(inValue) {

@@ -2,8 +2,8 @@
  * name: @feizheng/next-operation-history
  * description: Operation history for next.
  * url: https://github.com/afeiship/next-operation-history
- * version: 1.0.0
- * date: 2020-03-28 14:30:46
+ * version: 1.0.1
+ * date: 2020-03-28 20:40:14
  * license: MIT
  */
 
@@ -24,9 +24,6 @@
   };
 
   var NxOperationHistory = nx.declare('nx.OperationHistory', {
-    statics: {
-      hash: nxHash
-    },
     properties: {
       index: {
         set: function(inValue) {
