@@ -102,7 +102,7 @@
       },
       add: function(inData) {
         var data = this.data;
-        data.push({ id: nxHash(inData), data: inData });
+        data.push({ id: nxHash(inData), value: inData });
         this.flush(data);
       },
       del: function(inId) {
@@ -133,7 +133,7 @@
       },
       shouldAdd: function(inData) {
         var last = this.data[this.last()];
-        return !last || nxHash(last.data) !== nxHash(inData);
+        return !last || nxHash(last.value) !== nxHash(inData);
       }
     }
   });

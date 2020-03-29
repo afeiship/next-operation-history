@@ -3,7 +3,7 @@
  * description: Operation history for next.
  * url: https://github.com/afeiship/next-operation-history
  * version: 1.0.1
- * date: 2020-03-28 20:40:14
+ * date: 2020-03-29 18:39:15
  * license: MIT
  */
 
@@ -111,7 +111,7 @@
       },
       add: function(inData) {
         var data = this.data;
-        data.push({ id: nxHash(inData), data: inData });
+        data.push({ id: nxHash(inData), value: inData });
         this.flush(data);
       },
       del: function(inId) {
@@ -142,7 +142,7 @@
       },
       shouldAdd: function(inData) {
         var last = this.data[this.last()];
-        return !last || nxHash(last.data) !== nxHash(inData);
+        return !last || nxHash(last.value) !== nxHash(inData);
       }
     }
   });

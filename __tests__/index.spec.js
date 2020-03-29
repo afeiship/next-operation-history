@@ -41,11 +41,11 @@
       expect(res).toEqual([
         {
           id: '51552caaeb9c66620169b9a8e6a2b651c8dc7759',
-          data: { name: 'abcd' }
+          value: { name: 'abcd' }
         },
         {
           id: '9aec430c2eb27288a25619ada265bc5145db0148',
-          data: { name: 'abd' }
+          value: { name: 'abd' }
         }
       ]);
     });
@@ -99,7 +99,7 @@
       operationHistory.push({ name: 'abcd' });
       operationHistory.push({ name: 'abce' });
       operationHistory.push({ name: 'abcf' });
-      var res = nx.get(operationHistory.at(3), 'data.name');
+      var res = nx.get(operationHistory.at(3), 'value.name');
       expect(res).toBe('abcf');
     });
 
