@@ -14,10 +14,10 @@ npm install -S @feizheng/next-operation-history
   prefix:'wbs', // wbs__operation_history@
   index: 0,  // the pointer
   data: [
-    { id:'obj_hash1', data: 'json1'},
-    { id:'obj_hash2', data: 'json2'},
-    { id:'obj_hash3', data: 'json3'},
-    { id:'obj_hash4', data: 'json4'},
+    { id:'obj_hash1', value: 'json1'},
+    { id:'obj_hash2', value: 'json2'},
+    { id:'obj_hash3', value: 'json3'},
+    { id:'obj_hash4', value: 'json4'},
   ]
 }
 ```
