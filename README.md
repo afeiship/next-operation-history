@@ -32,7 +32,7 @@ npm install -S @feizheng/next-operation-history
 }
 ```
 
-## apis
+## methods
 | api     | params  | description                              |
 | ------- | ------- | ---------------------------------------- |
 | reset   | -       | Set index/data to default options value. |
@@ -45,7 +45,7 @@ npm install -S @feizheng/next-operation-history
 | go      | index   | Move to the index.                       |
 | push    | data    | Push data to items.                      |
 | replace | data    | Replace the last item.                   |
-| add     | data    | Add to the store without judement.       |
+| add     | data    | Add to the store without judgement.       |
 | del     | id      | Remove all the equal id elements.        |
 
 ## properties

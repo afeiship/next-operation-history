@@ -2,8 +2,8 @@
  * name: @feizheng/next-operation-history
  * description: Operation history for next.
  * url: https://github.com/afeiship/next-operation-history
- * version: 1.0.1
- * date: 2020-03-29 18:39:15
+ * version: 1.0.3
+ * date: 2020-03-30 10:13:15
  * license: MIT
  */
 
