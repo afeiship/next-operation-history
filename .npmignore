@@ -15,3 +15,9 @@ jest.config.js
 LICENSE.txt
 Rakefile
 .vscode
+.release-it.json
+docs
+
+# vscode localhistory
+.history
+.release-it.json

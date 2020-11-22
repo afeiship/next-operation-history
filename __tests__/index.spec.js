@@ -1,9 +1,8 @@
-(function() {
-  var nx = require('@feizheng/next-js-core2');
-  var NxOperationHistory = require('../src/next-operation-history');
+(function () {
+  const NxOperationHistory = require('../src');
 
-  describe('NxOperationHistory.methods', function() {
-    test('api: add/reset', function() {
+  describe('NxOperationHistory.methods', function () {
+    test('api: add/reset', function () {
       var operationHistory = new NxOperationHistory({ prefix: 'nx', max: 10 });
       operationHistory.add({ name: 'abc', age: 102 });
       operationHistory.add({ age: 102, name: 'abc' });
