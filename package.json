@@ -40,5 +40,12 @@
     "@jswork/next-local-storage": "^1.0.0",
     "@jswork/next-remove": "^1.0.0",
     "@jswork/next-session-storage": "^1.0.0"
-  }
+  },
+  "keywords": [
+    "next",
+    "operation",
+    "history",
+    "redo",
+    "undo"
+  ]
 }

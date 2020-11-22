@@ -3,7 +3,7 @@
  * description: Operation history for next.
  * homepage: https://github.com/afeiship/next-operation-history
  * version: 1.0.0
- * date: 2020-11-22 14:13:14
+ * date: 2020-11-22 14:14:52
  * license: MIT
  */
 
